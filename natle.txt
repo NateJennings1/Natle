@@ -1,0 +1,18 @@
+import random
+word = [chr(i).lower() for i in random.choices(range(65,91),k=5)]
+wordGuess = list(input('Word '))
+while len(wordGuess) < 5:
+    wordGuess.append('_')
+count = 1
+while wordGuess != word and count < 5:
+    win = [word[i]==wordGuess[i].lower() for i in range(5)]
+    print('grene: ', win)
+    print('yelo: ', [wordGuess[i] in word for i in range(5)])
+    wordGuess = list(input('Word '))
+    while len(wordGuess) < 5:
+        wordGuess.append('_')
+    count += 1
+if False in win:
+    print('Dumb')
+else:
+    print('Yay')
